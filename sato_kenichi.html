@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>佐藤 健一 のトリセツ | Bloom商事</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1e3a5f; --navy-light: #eef2f7;
+    --gold: #c9a84c; --gold-light: #f5edda;
+    --white: #fff; --text: #1a2535; --text-light: #5a6a80;
+    --border: #dde3ec; --accent: #1e3a5f;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--navy-light); min-height: 100vh; color: var(--text); padding-bottom: 48px; }
+
+  .hero {
+    background: var(--accent);
+    padding: 0 0 28px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before { content:''; position:absolute; top:-60px; right:-60px; width:240px; height:240px; background:rgba(255,255,255,.06); border-radius:50%; }
+  .hero::after  { content:''; position:absolute; bottom:-80px; left:-40px; width:200px; height:200px; background:rgba(201,168,76,.12); border-radius:50%; }
+
+  .back { display:inline-flex; align-items:center; gap:6px; color:rgba(255,255,255,.8); text-decoration:none; font-size:13px; padding:16px 20px 8px; font-weight:500; position:relative; z-index:1; }
+  .back:hover { color:white; }
+
+  .hero-body { padding: 12px 24px 0; position:relative; z-index:1; }
+  .office-tag { display:inline-block; background:rgba(255,255,255,.18); color:white; font-size:10px; padding:3px 12px; border-radius:50px; margin-bottom:10px; letter-spacing:.08em; font-weight:700; }
+  .role-tag { display:inline-block; background:var(--gold); color:var(--navy); font-size:10px; padding:3px 10px; border-radius:50px; margin-left:6px; font-weight:700; letter-spacing:.05em; }
+
+  .name-row { display:flex; align-items:center; gap:14px; }
+  .avatar { width:60px; height:60px; border-radius:50%; background:rgba(255,255,255,.2); border:3px solid rgba(255,255,255,.35); display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:900; color:white; flex-shrink:0; }
+  .hero h1 { font-family:'Shippori Mincho',serif; font-size:26px; font-weight:700; color:white; letter-spacing:.05em; }
+
+  .content { padding: 20px 16px; max-width: 600px; margin: 0 auto; display:flex; flex-direction:column; gap:12px; }
+
+  .sec { background:white; border-radius:14px; padding:18px 20px; box-shadow:0 2px 8px rgba(30,58,95,.06); border:1px solid var(--border); animation:fadeUp .4s ease both; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+  .sec:nth-child(1){animation-delay:.05s} .sec:nth-child(2){animation-delay:.1s} .sec:nth-child(3){animation-delay:.15s}
+  .sec:nth-child(4){animation-delay:.2s} .sec:nth-child(5){animation-delay:.25s} .sec:nth-child(6){animation-delay:.3s}
+  .sec:nth-child(7){animation-delay:.35s} .sec:nth-child(8){animation-delay:.4s}
+
+  .sec-label { font-size:10px; font-weight:700; color:var(--accent); letter-spacing:.12em; margin-bottom:5px; }
+  .sec-title { font-size:13px; font-weight:700; color:var(--text-light); margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:5px; }
+  .sec-body { font-size:14px; line-height:1.8; color:var(--text); }
+
+  .type-box { background:var(--navy-light); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:12px 14px; margin-bottom:8px; }
+  .type-name { font-weight:700; font-size:14px; color:var(--accent); margin-bottom:5px; }
+
+  .strengths { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  .strengths li { background:var(--navy-light); border-radius:10px; padding:10px 14px 10px 28px; font-size:13px; line-height:1.65; position:relative; }
+  .strengths li::before { content:'◆'; position:absolute; left:10px; top:12px; color:var(--gold); font-size:8px; }
+
+  .gold-highlight { background:var(--gold-light); border-left:3px solid var(--gold); border-radius:0 10px 10px 0; padding:12px 14px; font-size:14px; line-height:1.8; color:var(--text); }
+</style>
+</head>
+<body>
+<div class="hero">
+  <a class="back" href="list.html">‹ 一覧に戻る</a>
+  <div class="hero-body">
+    <div>
+      <span class="office-tag">東京本社</span>
+      <span class="role-tag">営業部長</span>
+    </div>
+    <div class="name-row">
+      <div class="avatar">佐</div>
+      <h1>佐藤 健一</h1>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="sec">
+    <div class="sec-label">A-1</div>
+    <div class="sec-title">🏷️ 呼ばれたい名前</div>
+    <div class="sec-body">佐藤部長、または「サトケンさん」と呼んでもらえると親近感がわいて嬉しいです。</div>
+  </div>
+  <div class="sec">
+    <div class="sec-label">A-5</div>
+    <div class="sec-title">💬 コミュニケーションスタイル</div>
+    <div class="type-box">
+      <div class="type-name">ドライバー（主導型）</div>
+      <div class="sec-body">仕事では成果を出すスピードを重視しますが、決して一方的にならず、全員が納得して動けるよう配慮することを心掛けています。</div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="sec-label">A-6</div>
+    <div class="sec-title">✨ 持ち味（3つ）</div>
+    <ul class="strengths"><li>判断力：不測の事態でも、現場の混乱を防ぐために迅速かつ的確な道筋を示すよう意識しています。</li><li>バイタリティ：全国の営業所を回る体力と、どんな困難なプロジェクトでも完遂させるエネルギーには自信があります。</li><li>責任感：部下の失敗は自分の責任と考え、最後まで逃げずにバックアップすることに誇りを持っています。</li></ul>
+  </div>
+  <div class="sec">
+    <div class="sec-label">B-1 / B-2</div>
+    <div class="sec-title">🎯 趣味・好きなもの</div>
+    <div class="sec-body">
+      <p style="margin-bottom:8px"><strong>趣味・マイブーム：</strong>毎朝5時からのジョギング。皇居周辺を走りながら、その日の戦略を練るのが日課です。</p>
+      <p><strong>好きな食べ物・飲み物：</strong>立ち食いそば（特に春菊天のせ）と、仕事終わりのキリッと冷えた辛口の日本酒。</p>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="sec-label">C-1</div>
+    <div class="sec-title">🔥 やる気がでるとき</div>
+    <div class="sec-body">①誰もが不可能だと思った大型契約を勝ち取ったとき ②部下が自分の壁を乗り越えて成長した姿を見たとき ③新しい市場を切り拓いている実感があるとき</div>
+  </div>
+  <div class="sec">
+    <div class="sec-label">D-3</div>
+    <div class="sec-title">💆 ストレス発散方法</div>
+    <div class="sec-body">サウナで「ととのう」こと。汗と一緒にすべての悩みも流し、水風呂で頭をリセットしています。</div>
+  </div>
+  <div class="sec">
+    <div class="sec-label">大切にしている価値観</div>
+    <div class="sec-title">💡 仕事上の価値観</div>
+    <div class="gold-highlight">「スピードは誠意」。返信の速さや対応の早さこそが、お客様や仲間への一番の敬意だと信じています。</div>
+  </div>
+  <div class="sec">
+    <div class="sec-label">サポート情報</div>
+    <div class="sec-title">🤝 サポートしてもらえると助かること</div>
+    <div class="sec-body" style="margin-bottom:14px">ついつい予定を詰め込みすぎてしまうので、スケジュールに「移動時間」や「休憩」を無理やり差し込んでもらえると非常に助かります。</div>
+    <div class="sec-title" style="margin-top:12px">⭐ 任せてほしいこと</div>
+    <div class="sec-body">他部署とのハードな利害調整や、トラブル発生時の最終責任の引き受け。最後は私が必ず何とかします。</div>
+  </div>
+</div>
+
+<script>
+  if(!sessionStorage.getItem('auth')) location.href='index.html';
+</script>
+</body>
+</html>

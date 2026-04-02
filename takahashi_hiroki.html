@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高橋 宏樹 のトリセツ | Bloom商事</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1e3a5f; --navy-light: #eef2f7;
+    --gold: #c9a84c; --gold-light: #f5edda;
+    --white: #fff; --text: #1a2535; --text-light: #5a6a80;
+    --border: #dde3ec; --accent: #1a365d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--navy-light); min-height: 100vh; color: var(--text); padding-bottom: 48px; }
+
+  .hero {
+    background: var(--accent);
+    padding: 0 0 28px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before { content:''; position:absolute; top:-60px; right:-60px; width:240px; height:240px; background:rgba(255,255,255,.06); border-radius:50%; }
+  .hero::after  { content:''; position:absolute; bottom:-80px; left:-40px; width:200px; height:200px; background:rgba(201,168,76,.12); border-radius:50%; }
+
+  .back { display:inline-flex; align-items:center; gap:6px; color:rgba(255,255,255,.8); text-decoration:none; font-size:13px; padding:16px 20px 8px; font-weight:500; position:relative; z-index:1; }
+  .back:hover { color:white; }
+
+  .hero-body { padding: 12px 24px 0; position:relative; z-index:1; }
+  .office-tag { display:inline-block; background:rgba(255,255,255,.18); color:white; font-size:10px; padding:3px 12px; border-radius:50px; margin-bottom:10px; letter-spacing:.08em; font-weight:700; }
+  .role-tag { display:inline-block; background:var(--gold); color:var(--navy); font-size:10px; padding:3px 10px; border-radius:50px; margin-left:6px; font-weight:700; letter-spacing:.05em; }
+
+  .name-row { display:flex; align-items:center; gap:14px; }
+  .avatar { width:60px; height:60px; border-radius:50%; background:rgba(255,255,255,.2); border:3px solid rgba(255,255,255,.35); display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:900; color:white; flex-shrink:0; }
+  .hero h1 { font-family:'Shippori Mincho',serif; font-size:26px; font-weight:700; color:white; letter-spacing:.05em; }
+
+  .content { padding: 20px 16px; max-width: 600px; margin: 0 auto; display:flex; flex-direction:column; gap:12px; }
+
+  .sec { background:white; border-radius:14px; padding:18px 20px; box-shadow:0 2px 8px rgba(30,58,95,.06); border:1px solid var(--border); animation:fadeUp .4s ease both; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+  .sec:nth-child(1){animation-delay:.05s} .sec:nth-child(2){animation-delay:.1s} .sec:nth-child(3){animation-delay:.15s}
+  .sec:nth-child(4){animation-delay:.2s} .sec:nth-child(5){animation-delay:.25s} .sec:nth-child(6){animation-delay:.3s}
+  .sec:nth-child(7){animation-delay:.35s} .sec:nth-child(8){animation-delay:.4s}
+
+  .sec-label { font-size:10px; font-weight:700; color:var(--accent); letter-spacing:.12em; margin-bottom:5px; }
+  .sec-title { font-size:13px; font-weight:700; color:var(--text-light); margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:5px; }
+  .sec-body { font-size:14px; line-height:1.8; color:var(--text); }
+
+  .type-box { background:var(--navy-light); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:12px 14px; margin-bottom:8px; }
+  .type-name { font-weight:700; font-size:14px; color:var(--accent); margin-bottom:5px; }
+
+  .strengths { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  .strengths li { background:var(--navy-light); border-radius:10px; padding:10px 14px 10px 28px; font-size:13px; line-height:1.65; position:relative; }
+  .strengths li::before { content:'◆'; position:absolute; left:10px; top:12px; color:var(--gold); font-size:8px; }
+
+  .gold-highlight { background:var(--gold-light); border-left:3px solid var(--gold); border-radius:0 10px 10px 0; padding:12px 14px; font-size:14px; line-height:1.8; color:var(--text); }
+</style>
+</head>
+<body>
+<div class="hero">
+  <a class="back" href="list.html">‹ 一覧に戻る</a>
+  <div class="hero-body">
+    <div>
+      <span class="office-tag">札幌営業所</span>
+      <span class="role-tag">所長</span>
+    </div>
+    <div class="name-row">
+      <div class="avatar">高</div>
+      <h1>高橋 宏樹</h1>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="sec">
+    <div class="sec-label">A-1</div>
+    <div class="sec-title">🏷️ 呼ばれたい名前</div>
+    <div class="sec-body">高橋所長、あるいは「ヒロさん」。</div>
+  </div>
+  <div class="sec">
+    <div class="sec-label">A-5</div>
+    <div class="sec-title">💬 コミュニケーションスタイル</div>
+    <div class="type-box">
+      <div class="type-name">アナリティカル（分析型）</div>
+      <div class="sec-body">正確さや根拠を大切にしており、事前に情報を整理してから慎重に判断を下すタイプです。</div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="sec-label">A-6</div>
+    <div class="sec-title">✨ 持ち味（3つ）</div>
+    <ul class="strengths"><li>分析力：市場のデータや過去の傾向から、最も成功率の高い販売戦略を導き出すことに情熱を注いでいます。</li><li>冷静沈着：吹雪の中でも現場に向かうときのように、どんなトラブルが起きてもパニックにならず、解決策を淡々と考えます。</li><li>探究心：業界の知識はもちろん、競合他社の動向や最新のシステムまで、掘り下げて調べるのが好きです。</li></ul>
+  </div>
+  <div class="sec">
+    <div class="sec-label">B-1 / B-2</div>
+    <div class="sec-title">🎯 趣味・好きなもの</div>
+    <div class="sec-body">
+      <p style="margin-bottom:8px"><strong>趣味・マイブーム：</strong>冬キャンプ。マイナス10度の中で焚き火を見つめながら、静かに過ごす時間が最高の贅沢です。</p>
+      <p><strong>好きな食べ物・飲み物：</strong>濃厚な味のジンギスカンと、地元のマイクロブルワリーで作られたクラフトビール。</p>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="sec-label">C-1</div>
+    <div class="sec-title">🔥 やる気がでるとき</div>
+    <div class="sec-body">①緻密に立てた販売戦略が的中したとき ②データ戦で競合他社に勝ち抜いたとき ③長年開拓できなかった取引先と信頼を結べたとき</div>
+  </div>
+  <div class="sec">
+    <div class="sec-label">D-3</div>
+    <div class="sec-title">💆 ストレス発散方法</div>
+    <div class="sec-body">誰もいない林道を車でドライブすること。エンジン音だけを聞きながら自然の中に身を置くとリフレッシュできます。</div>
+  </div>
+  <div class="sec">
+    <div class="sec-label">大切にしている価値観</div>
+    <div class="sec-title">💡 仕事上の価値観</div>
+    <div class="gold-highlight">「事実は一つ、解釈は無限」。起きた現象を感情的に捉えず、客観的なデータとして分析し、次の打ち手に活かすことを信条としています。</div>
+  </div>
+  <div class="sec">
+    <div class="sec-label">サポート情報</div>
+    <div class="sec-title">🤝 サポートしてもらえると助かること</div>
+    <div class="sec-body" style="margin-bottom:14px">データの分析に没頭すると周りの声が聞こえなくなるので、急ぎの用件のときは遠慮なく肩を叩いて呼び止めてください。</div>
+    <div class="sec-title" style="margin-top:12px">⭐ 任せてほしいこと</div>
+    <div class="sec-body">地域の市場動向のシミュレーションや、複雑な利益率の計算。営業所の指針となる「勝てる地図」を描きます。</div>
+  </div>
+</div>
+
+<script>
+  if(!sessionStorage.getItem('auth')) location.href='index.html';
+</script>
+</body>
+</html>
