@@ -11,6 +11,7 @@
     --navy-dark: #162d4a;
     --navy-light: #eef2f7;
     --gold: #c9a84c;
+    --gold-light: #f5edda;
     --white: #ffffff;
     --text: #1a2535;
     --text-light: #5a6a80;
@@ -23,34 +24,98 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
   }
-  .wrap { width: 90%; max-width: 400px; }
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(ellipse at 20% 20%, rgba(30,58,95,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(201,168,76,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
 
-  .brand { text-align: center; margin-bottom: 36px; }
-  .brand h1 { font-size: 11px; color: var(--text-light); letter-spacing: 0.2em; }
-  .brand h2 { font-size: 24px; font-weight: 700; color: var(--navy); }
+  .wrap {
+    width: 90%;
+    max-width: 400px;
+    animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .brand {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .brand-icon {
+    width: 60px; height: 60px;
+    background: var(--navy);
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    box-shadow: 0 8px 24px rgba(30,58,95,0.25);
+  }
+  .brand-icon svg {
+    width: 32px; height: 32px;
+    fill: var(--gold);
+  }
+  .brand h1 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 11px;
+    color: var(--text-light);
+    letter-spacing: 0.2em;
+    margin-bottom: 6px;
+    font-weight: 400;
+  }
+  .brand h2 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.08em;
+  }
 
   .card {
     background: var(--white);
     border-radius: 20px;
     padding: 36px 32px;
-    box-shadow: 0 12px 48px rgba(30,58,95,0.1);
+    box-shadow: 0 12px 48px rgba(30,58,95,0.1), 0 2px 8px rgba(0,0,0,0.04);
+    border: 1px solid rgba(30,58,95,0.06);
   }
-
   .card p {
     text-align: center;
     font-size: 13px;
     color: var(--text-light);
-    margin-bottom: 20px;
+    line-height: 1.8;
+    margin-bottom: 28px;
   }
 
-  .input-wrap { margin-bottom: 14px; }
+  .input-wrap { position: relative; margin-bottom: 14px; }
   .input-wrap input {
     width: 100%;
-    padding: 14px;
+    padding: 14px 48px 14px 16px;
+    border: 1.5px solid #dde3ec;
     border-radius: 12px;
-    border: 1px solid #ccc;
+    font-size: 15px;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text);
+    background: var(--navy-light);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.1em;
   }
+  .input-wrap input:focus {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px rgba(30,58,95,0.08);
+    background: white;
+  }
+  .eye { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--text-light); font-size: 16px; }
 
   .btn {
     width: 100%;
@@ -59,73 +124,63 @@
     color: white;
     border: none;
     border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Noto Sans JP', sans-serif;
     cursor: pointer;
+    letter-spacing: 0.12em;
+    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(30,58,95,0.3);
   }
+  .btn:hover { background: var(--navy-dark); box-shadow: 0 6px 20px rgba(30,58,95,0.4); }
+  .btn:active { transform: scale(0.98); }
 
-  .err {
-    text-align: center;
-    color: red;
-    font-size: 12px;
-    display: none;
-  }
+  .err { text-align: center; color: #c0392b; font-size: 12px; margin-top: 12px; display: none; animation: shake .3s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
 
-  .demo-link {
-    text-align: center;
-    margin-top: 12px;
-    font-size: 12px;
-  }
+  .footer { text-align: center; margin-top: 24px; font-size: 11px; color: var(--text-light); opacity: 0.6; }
+  .gold-line { width: 40px; height: 2px; background: var(--gold); margin: 0 auto 20px; border-radius: 2px; }
 </style>
 </head>
-
 <body>
-
 <div class="wrap">
   <div class="brand">
+    <div class="brand-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    </div>
     <h1>BLOOM SHOJI CO., LTD.</h1>
     <h2>私のトリセツ</h2>
   </div>
-
   <div class="card">
+    <div class="gold-line"></div>
     <p>このサイトは社内専用です。<br>パスワードを入力してご覧ください。</p>
-
     <div class="input-wrap">
-      <input type="password" id="pw" placeholder="パスワードを入力">
+      <input type="password" id="pw" placeholder="パスワードを入力" autocomplete="off">
+      <button class="eye" onclick="togglePw()">👁</button>
     </div>
-
     <button class="btn" onclick="login()">ログイン</button>
     <p class="err" id="err">パスワードが違います</p>
-
-    <!-- 🔥 デモ用リンク -->
-    <div class="demo-link">
-      <a href="?demo=1">※デモ閲覧はこちら</a>
-    </div>
   </div>
+  <p class="footer">© Bloom商事株式会社　人材・組織開発部</p>
 </div>
-
 <script>
   const PW = 'bloom26';
-
-  // 🔥 デモURLならスキップ
-  const params = new URLSearchParams(location.search);
-  if(params.get('demo') === '1'){
-    sessionStorage.setItem('auth','1');
-    location.href = 'list.html';
-  }
-
-  document.getElementById('pw').addEventListener('keydown', e => {
-    if(e.key === 'Enter') login();
-  });
-
+  document.getElementById('pw').addEventListener('keydown', e => { if(e.key==='Enter') login(); });
   function login() {
     if(document.getElementById('pw').value === PW) {
       sessionStorage.setItem('auth','1');
       location.href = 'list.html';
     } else {
-      document.getElementById('err').style.display='block';
+      const e = document.getElementById('err');
+      e.style.display='block'; e.style.animation='none';
+      setTimeout(()=>e.style.animation='shake .3s',10);
       document.getElementById('pw').value='';
     }
   }
+  function togglePw() {
+    const i = document.getElementById('pw');
+    i.type = i.type==='password'?'text':'password';
+  }
 </script>
-
 </body>
 </html>
