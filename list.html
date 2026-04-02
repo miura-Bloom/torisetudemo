@@ -7,151 +7,105 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #1e3a5f; --navy-dark: #162d4a; --navy-light: #eef2f7;
-    --gold: #c9a84c; --gold-light: #f5edda;
-    --white: #fff; --text: #1a2535; --text-light: #5a6a80;
+    --navy: #1e3a5f; --navy-light: #eef2f7;
+    --gold: #c9a84c; --white: #fff;
+    --text: #1a2535; --text-light: #5a6a80;
     --border: #dde3ec;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Noto Sans JP', sans-serif; background: var(--navy-light); min-height: 100vh; color: var(--text); padding-bottom: 48px; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--navy-light); }
 
   header {
     background: var(--navy);
-    padding: 0 20px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    position: sticky; top: 0; z-index: 100;
-    box-shadow: 0 2px 16px rgba(30,58,95,0.3);
+    padding: 16px;
+    color: white;
   }
-  .hlogo { width: 32px; height: 32px; background: var(--gold); border-radius: 8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-  .hlogo svg { width:18px; height:18px; fill:var(--navy); }
-  .htitle { font-family:'Shippori Mincho',serif; font-size:17px; font-weight:700; color:white; letter-spacing:.05em; }
-  .hsub { font-size:10px; color:rgba(255,255,255,.6); letter-spacing:.1em; display:block; }
+  .htitle { font-size: 18px; font-weight: bold; }
 
-  .search-area { padding: 20px 16px 4px; max-width: 600px; margin: 0 auto; position: relative; }
+  .search-area { padding: 16px; }
   .search-area input {
-    width: 100%; padding: 13px 16px 13px 44px;
-    border: 1.5px solid var(--border); border-radius: 50px;
-    font-size: 14px; font-family: 'Noto Sans JP', sans-serif;
-    background: white; color: var(--text); outline: none;
-    transition: border-color .2s, box-shadow .2s;
+    width: 100%; padding: 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
   }
-  .search-area input:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(30,58,95,.08); }
-  .search-icon { position:absolute; left:30px; top:50%; transform:translateY(-18%); font-size:17px; color:var(--text-light); pointer-events:none; }
 
-  .count { text-align:center; font-size:11px; color:var(--text-light); padding:8px 0 2px; letter-spacing:.05em; }
-
-  .list { padding: 8px 16px; max-width: 600px; margin: 0 auto; }
-
-  .group-label {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 12px; font-weight: 700;
-    color: var(--navy);
-    letter-spacing: .1em;
-    padding: 16px 4px 6px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .group-label::after { content:''; flex:1; height:1px; background:var(--border); }
+  .list { padding: 16px; }
 
   .card {
     background: white;
-    border-radius: 14px;
-    padding: 14px 18px;
-    display: flex; align-items: center; gap: 14px;
-    text-decoration: none; color: var(--text);
+    padding: 12px;
+    border-radius: 12px;
     margin-bottom: 8px;
-    box-shadow: 0 2px 8px rgba(30,58,95,.06);
-    border: 1px solid var(--border);
-    transition: transform .15s, box-shadow .15s, border-color .15s;
-    animation: fadeUp .4s ease both;
+    display: block;
+    text-decoration: none;
+    color: var(--text);
   }
-  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(30,58,95,.12); border-color: rgba(30,58,95,.2); }
-  @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
 
-  .avatar {
-    width: 46px; height: 46px; border-radius: 50%;
-    background: var(--navy); color: white;
-    display:flex; align-items:center; justify-content:center;
-    font-size:17px; font-weight:900; flex-shrink:0;
+  .name { font-weight: bold; }
+  .role { font-size: 12px; color: var(--gold); }
+  .called { font-size: 12px; color: var(--text-light); }
+
+  .footer-note {
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.8;
   }
-  .info { flex:1; min-width:0; }
-  .name { font-size:15px; font-weight:700; margin-bottom:2px; }
-  .role { font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.05em; margin-bottom:2px; }
-  .called { font-size:11px; color:var(--text-light); }
-  .arr { color:var(--border); font-size:20px; }
-
-  .no-result { text-align:center; padding:60px 20px; color:var(--text-light); font-size:14px; display:none; }
 </style>
 </head>
+
 <body>
+
 <header>
-  <div class="hlogo"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-  <div>
-    <span class="hsub">BLOOM SHOJI CO., LTD.</span>
-    <div class="htitle">私のトリセツ</div>
-  </div>
+  <div class="htitle">私のトリセツ（デモ）</div>
 </header>
+
 <div class="search-area">
-  <span class="search-icon">🔍</span>
-  <input type="search" id="q" placeholder="名前・営業所・役職で検索" oninput="search()">
+  <input type="search" id="q" placeholder="検索" oninput="search()">
 </div>
-<p class="count" id="count"></p>
+
 <div class="list" id="list"></div>
-<p class="no-result" id="noResult">該当するメンバーが見つかりません</p>
+
+<!-- 🔥 ここが営業のキモ -->
+<div class="footer-note">
+  ※本デモは架空の企業設定です。<br>
+  実際には、御社の課題（離職・コミュニケーション・定着など）に応じて<br>
+  トリセツ内容をカスタマイズし、組織改善ツールとして提供します。
+</div>
 
 <script>
   if(!sessionStorage.getItem('auth')) location.href='index.html';
-  const groups = [{"label":"東京本社","ids":["sato_kenichi","ito_yui"]},{"label":"札幌営業所","ids":["takahashi_hiroki"]},{"label":"仙台営業所","ids":["abe_kento"]},{"label":"新潟営業所","ids":["saito_kenji"]},{"label":"名古屋営業所","ids":["nakamura_yuki"]},{"label":"金沢営業所","ids":["kobayashi_keiko"]},{"label":"京都営業所","ids":["okada_jun"]},{"label":"大阪営業所","ids":["kato_shota"]},{"label":"神戸営業所","ids":["nakajima_mika"]},{"label":"広島営業所","ids":["sasaki_mai"]},{"label":"高松営業所","ids":["hayashi_naoki"]},{"label":"高知営業所","ids":["sakamoto_ryuhei"]},{"label":"福岡営業所","ids":["kimura_takuya"]},{"label":"長崎営業所","ids":["yamaguchi_shinichi"]},{"label":"宮崎営業所","ids":["maeda_atsushi"]},{"label":"大分営業所","ids":["kondo_makoto"]},{"label":"静岡営業所","ids":["morita_go"]},{"label":"岡山営業所","ids":["shimizu_sakura"]},{"label":"鹿児島営業所","ids":["ishii_noriko"]}];
-  const allMembers = [{"id":"sato_kenichi","name":"佐藤 健一","office":"東京本社","role":"営業部長","called_short":"佐藤部長・サトケンさん"},{"id":"ito_yui","name":"伊藤 結衣","office":"横浜営業所","role":"事務リーダー","called_short":"結衣さん"},{"id":"takahashi_hiroki","name":"高橋 宏樹","office":"札幌営業所","role":"所長","called_short":"高橋所長・ヒロさん"},{"id":"nakamura_yuki","name":"中村 勇気","office":"名古屋営業所","role":"所長","called_short":"中村所長・勇気さん"},{"id":"kobayashi_keiko","name":"小林 恵子","office":"金沢営業所","role":"リーダー","called_short":"小林さん・お恵さん"},{"id":"kato_shota","name":"加藤 翔太","office":"大阪営業所","role":"係長","called_short":"加藤さん・翔ちゃん"},{"id":"abe_kento","name":"阿部 健斗","office":"仙台営業所","role":"所長","called_short":"阿部所長"},{"id":"sasaki_mai","name":"佐々木 舞","office":"広島営業所","role":"事務","called_short":"舞さん・佐々木ちゃん"},{"id":"kimura_takuya","name":"木村 拓也","office":"福岡営業所","role":"所長","called_short":"木村所長・キムさん"},{"id":"hayashi_naoki","name":"林 直樹","office":"高松営業所","role":"リーダー","called_short":"林さん・直樹さん"},{"id":"shimizu_sakura","name":"清水 さくら","office":"岡山営業所","role":"事務","called_short":"さくらさん"},{"id":"okada_jun","name":"岡田 准","office":"京都営業所","role":"所長","called_short":"岡田所長"},{"id":"yamaguchi_shinichi","name":"山口 真一","office":"長崎営業所","role":"係長","called_short":"山口さん"},{"id":"saito_kenji","name":"斎藤 健二","office":"新潟営業所","role":"所長","called_short":"斎藤所長"},{"id":"ishii_noriko","name":"石井 典子","office":"鹿児島営業所","role":"事務リーダー","called_short":"典子さん"},{"id":"kondo_makoto","name":"近藤 誠","office":"大分営業所","role":"リーダー","called_short":"近藤さん"},{"id":"morita_go","name":"森田 剛","office":"静岡営業所","role":"所長","called_short":"森田所長"},{"id":"maeda_atsushi","name":"前田 敦","office":"宮崎営業所","role":"係長","called_short":"あっちゃん"},{"id":"nakajima_mika","name":"中島 美香","office":"神戸営業所","role":"リーダー","called_short":"中島さん・美香さん"},{"id":"sakamoto_ryuhei","name":"坂本 龍平","office":"高知営業所","role":"所長","called_short":"坂本所長"}];
-  const memberMap = {};
-  allMembers.forEach(m => memberMap[m.id] = m);
 
-  function initial(name) { return name.replace(/\s/g,'')[0]; }
+  const members = [
+    {name:"佐藤 健一", role:"営業部長", called:"サトケンさん"},
+    {name:"伊藤 結衣", role:"事務リーダー", called:"結衣さん"},
+    {name:"高橋 宏樹", role:"所長", called:"ヒロさん"}
+  ];
 
-  function cardHTML(m, i) {
-    return `<a class="card" href="${m.id}.html" style="animation-delay:${i*.04}s">
-      <div class="avatar">${initial(m.name)}</div>
-      <div class="info">
-        <div class="name">${m.name}</div>
-        <div class="role">${m.office}　${m.role}</div>
-        <div class="called">「${m.called_short}」と呼んでください</div>
-      </div>
-      <div class="arr">›</div>
-    </a>`;
+  function render(list){
+    document.getElementById('list').innerHTML =
+      list.map(m => `
+        <div class="card">
+          <div class="name">${m.name}</div>
+          <div class="role">${m.role}</div>
+          <div class="called">「${m.called}」と呼んでください</div>
+        </div>
+      `).join('');
   }
 
-  function renderGroups() {
-    let html = ''; let total = 0; let i = 0;
-    groups.forEach(g => {
-      const ms = g.ids.map(id => memberMap[id]).filter(Boolean);
-      if(!ms.length) return;
-      html += `<div class="group-label">📍 ${g.label}</div>`;
-      ms.forEach(m => { html += cardHTML(m, i++); total++; });
-    });
-    document.getElementById('noResult').style.display = 'none';
-    document.getElementById('count').textContent = `${total}名のトリセツ`;
-    document.getElementById('list').innerHTML = html;
-  }
-
-  function search() {
-    const q = document.getElementById('q').value.trim();
-    if(!q) { renderGroups(); return; }
-    const filtered = allMembers.filter(m =>
-      m.name.includes(q) || m.office.includes(q) || m.role.includes(q) || m.called_short.includes(q)
+  function search(){
+    const q = document.getElementById('q').value;
+    const filtered = members.filter(m =>
+      m.name.includes(q) || m.role.includes(q) || m.called.includes(q)
     );
-    document.getElementById('count').textContent = `${filtered.length}名`;
-    if(!filtered.length) {
-      document.getElementById('list').innerHTML = '';
-      document.getElementById('noResult').style.display = 'block';
-    } else {
-      document.getElementById('noResult').style.display = 'none';
-      document.getElementById('list').innerHTML = filtered.map((m,i) => cardHTML(m,i)).join('');
-    }
+    render(filtered);
   }
 
-  renderGroups();
+  render(members);
 </script>
+
 </body>
 </html>
